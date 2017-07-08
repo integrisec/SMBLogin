@@ -36,6 +36,7 @@ def login_check(u, p, t, d, s, o, port, timeout):
 
         for targets in tl:
             targets = targets.strip()
+            count = len(pl)
 
             for passwords in pl:
                 passwords = passwords.strip()
@@ -73,7 +74,8 @@ def login_check(u, p, t, d, s, o, port, timeout):
                     if ow:
                         of.write(result + '\n')
 
-                if len(pl) > 1:
+                if count > 1:
+                    count -= count
                     time.sleep(s * 60)
 
         if ow:
